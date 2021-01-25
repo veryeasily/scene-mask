@@ -80,6 +80,7 @@ export default {
       console.log("percentage", temp);
       return temp;
     },
+
     handleClick(e) {
       const bounds = this.$refs.svg.getBoundingClientRect();
       const point = {
@@ -89,23 +90,27 @@ export default {
       console.log("handleClick", e, point);
       this.$set(this.points, this.points.currentTarget, point);
     },
-    svgPoint() {
-      return this.$refs.svg.createSVGPoint();
-    },
-    // screenPoint needs to be an object with Number "x" and "y" properties.
-    toSvgPoint(screenPoint) {
-      const svg = this.$refs.svg;
 
-      const svgPoint = svg.createSVGPoint();
-      svgPoint.x = screenPoint.x;
-      svgPoint.y = screenPoint.y;
+    // NOTE: Not currently used but will probably eventually be useful. This
+    // converts screen coordinates to SVG coordinates.
+    //
+    // svgPoint() {
+    //   return this.$refs.svg.createSVGPoint();
+    // },
+    // // screenPoint needs to be an object with Number "x" and "y" properties.
+    // toSvgPoint(screenPoint) {
+    //   const svg = this.$refs.svg;
 
-      const matrix = svg.getScreenCTM();
-      const cursorpt = svgPoint.matrixTransform(matrix.inverse());
+    //   const svgPoint = svg.createSVGPoint();
+    //   svgPoint.x = screenPoint.x;
+    //   svgPoint.y = screenPoint.y;
 
-      console.log("(" + cursorpt.x + ", " + cursorpt.y + ")");
-      return cursorpt;
-    },
+    //   const matrix = svg.getScreenCTM();
+    //   const cursorpt = svgPoint.matrixTransform(matrix.inverse());
+
+    //   console.log("(" + cursorpt.x + ", " + cursorpt.y + ")");
+    //   return cursorpt;
+    // },
   },
 };
 </script>
