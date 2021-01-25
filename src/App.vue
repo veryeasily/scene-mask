@@ -26,6 +26,20 @@
           </defs>
 
           <polyline :points="polygonPoints" fill="url(#linear)" />
+          <circle
+            :cx="points.startPoint.x"
+            :cy="points.startPoint.y"
+            r="15"
+            style="stroke: red;"
+            class="distance_marker"
+          />
+          <circle
+            :cx="points.endPoint.x"
+            :cy="points.endPoint.y"
+            r="15"
+            style="stroke: blue;"
+            class="distance_marker"
+          />
         </template>
       </svg>
     </div>
@@ -179,5 +193,10 @@ export default {
   max-width: 500px;
   word-break: break-all;
   overflow-wrap: break-word;
+}
+
+.distance_marker {
+  fill: none;
+  stroke-width: 2;
 }
 </style>
