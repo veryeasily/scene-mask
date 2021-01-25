@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
+    "canvg": "^3.0.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {
